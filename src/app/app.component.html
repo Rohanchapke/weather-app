@@ -1,0 +1,38 @@
+<div class="container  d-flex justify-content-center" >
+  <div class="row card text-black m-5" style="max-width:32rem;">
+      <div class="card-header bg-primary text-white">Simple Weather</div>
+      
+      <div class="card-body ">
+        <div >
+          <form [formGroup]="formGroup">
+            <mat-form-field>
+              <input formControlName="city" placeholder="Enter City" matInput type="text" [matAutocomplete]="auto" [(ngModel)]="value" />
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+                <mat-option *ngFor="let item of filteredOptions" [value]="item">
+                 {{item}} 
+                </mat-option>
+              </mat-autocomplete>
+              <button type="button" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
+                  <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+          </form>
+        </div>
+          <div class="bg-primary" >
+              <mat-tab-group class="bg-light text-dark "  (selectedTabChange)="tabClikced($event)" >
+                  <mat-tab *ngFor="let cityname of cities; let index = index"   [label]="cityname">
+                    <div class="d-grid gap-3rounded border border-dark">
+                      <div class="p-2 g-col-6 bg-primary text-white border border-dark">
+                        <app-today [cityName]="cityname"></app-today>
+                      </div>
+                      <div class="p-2 g-col-6 bg-primary text-white border border-dark" > 
+                         <app-future [cityName]="cityname"></app-future>
+                      </div>
+                    </div>
+                  </mat-tab>
+              </mat-tab-group>
+          </div>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+      </div>
+  </div>
+</div>

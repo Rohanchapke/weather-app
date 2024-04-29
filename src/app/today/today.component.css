@@ -1,0 +1,9 @@
+.timeline{
+    display: grid;
+    grid-template-columns: repeat(4, 7rem);
+
+}
+
+h5{
+    grid-column: 1/-1;
+}

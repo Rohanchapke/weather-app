@@ -1,0 +1,10 @@
+<div class="timeline">
+    <h5 class="card-title">Next hours</h5>
+    <div  *ngFor="let item of timeline"> 
+        <div>{{item.temp | number:'1.0-0'}}°F</div>
+        <div>{{item.pop }}%</div>
+         <img  [src]="item.imgsrc">   
+        <div>{{item.time }}</div>
+        
+    </div>
+</div>

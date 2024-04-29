@@ -1,0 +1,8 @@
+.dtimeline{
+    display: grid;
+    grid-template-columns: repeat(3, 8rem);
+}
+
+h5{
+    grid-column: 1/-1;
+}

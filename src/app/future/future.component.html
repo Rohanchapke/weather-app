@@ -1,0 +1,9 @@
+<div class="container">
+   <h5 class="card-title">Next 5 days</h5>
+    
+    <div class="row" *ngFor="let item of weatherData" >
+        <div class="col"> <img [src]="item.imgsrc">  </div>
+       <div class="col-4">{{item.date| date:'EEE, MMMM d'}} <br> {{item.desc}}  </div>
+       <div class="col"> {{item.temp_max}}°F  {{item.temp_min}}°F</div>
+    </div>
+</div>
